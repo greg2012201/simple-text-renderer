@@ -3,6 +3,7 @@
 import { Command } from 'commander';
 import figlet from 'figlet';
 import fs from 'fs';
+import * as emoji from 'node-emoji';
 
 console.log(figlet.textSync('About.js'));
 const program = new Command();
@@ -12,7 +13,7 @@ const options = program.opts();
 
 function importFile(filename: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    const filePath = `./assets/${filename}.txt`;
+    const filePath = `./assets/${filename}.md`;
 
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
@@ -27,7 +28,7 @@ function importFile(filename: string): Promise<string> {
 async function renderText() {
   const file = await importFile('greetings');
 
-  console.log(file);
+  console.log(emoji.emojify(file));
 }
 
 if (options.r) {
