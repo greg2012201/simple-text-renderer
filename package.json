@@ -1,21 +1,27 @@
 {
-    "name": "simple-text-renderer",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.ts",
-    "scripts": {
-        "build": "npx tsc",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "Grzegorz Dubiel",
-    "license": "MIT",
-    "dependencies": {
-        "commander": "^12.0.0",
-        "figlet": "^1.7.0"
-    },
-    "devDependencies": {
-        "@types/node": "^20.12.6",
-        "typescript": "^5.4.4"
-    }
+  "name": "simple-text-renderer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dir/index.js",
+  "bin": {
+    "about-js": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "npx tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Grzegorz Dubiel",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.0.0",
+    "figlet": "^1.7.0",
+    "prettier": "^3.2.5"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.8",
+    "@types/node": "^20.12.6",
+    "typescript": "^5.4.4"
+  }
 }
