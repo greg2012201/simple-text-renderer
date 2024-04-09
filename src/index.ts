@@ -2,6 +2,7 @@
 
 import { Command } from 'commander';
 import figlet from 'figlet';
+import fs from 'fs';
 
 console.log(figlet.textSync('About.js'));
 const program = new Command();
@@ -9,8 +10,24 @@ const program = new Command();
 program.version('1.0.0').description('A little app for text rendering').option('-r', 'Render text').parse(process.argv);
 const options = program.opts();
 
-function renderText() {
-  console.log('rendered');
+function importFile(filename: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const filePath = `./assets/${filename}.txt`;
+
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
+
+async function renderText() {
+  const file = await importFile('greetings');
+
+  console.log(file);
 }
 
 if (options.r) {
