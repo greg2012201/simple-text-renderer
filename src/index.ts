@@ -4,6 +4,7 @@ import { Command } from 'commander';
 import figlet from 'figlet';
 import fs from 'fs';
 import * as emoji from 'node-emoji';
+import { sleep } from './utils';
 
 console.log(figlet.textSync('About.js'));
 const program = new Command();
@@ -27,7 +28,7 @@ function importFile(filename: string): Promise<string> {
 
 async function renderText() {
   const file = await importFile('greetings');
-
+  await sleep(1500);
   console.log(emoji.emojify(file));
 }
 
