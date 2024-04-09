@@ -41,9 +41,14 @@ const figlet_1 = __importDefault(require("figlet"));
 const fs_1 = __importDefault(require("fs"));
 const emoji = __importStar(require("node-emoji"));
 const utils_1 = require("./utils");
+const terminal_kit_1 = require("terminal-kit");
 console.log(figlet_1.default.textSync('About.js'));
 const program = new commander_1.Command();
-program.version('1.0.0').description('A little app for text rendering').option('-r', 'Render text').parse(process.argv);
+program
+    .version('1.0.0')
+    .description('A little app for text rendering')
+    .option('-r', 'Render text')
+    .parse(process.argv);
 const options = program.opts();
 function importFile(filename) {
     return new Promise((resolve, reject) => {
@@ -62,7 +67,13 @@ function renderText() {
     return __awaiter(this, void 0, void 0, function* () {
         const file = yield importFile('greetings');
         yield (0, utils_1.sleep)(1500);
-        console.log(emoji.emojify(file));
+        const text = emoji.emojify(file);
+        terminal_kit_1.terminal.slowTyping(text, { delay: 50, style: terminal_kit_1.terminal.white }, function () {
+            return __awaiter(this, void 0, void 0, function* () {
+                yield (0, utils_1.sleep)(3000);
+                process.exit();
+            });
+        });
     });
 }
 if (options.r) {
