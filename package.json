@@ -17,11 +17,11 @@
   "dependencies": {
     "commander": "^12.0.0",
     "figlet": "^1.7.0",
-    "node-emoji": "^2.1.3",
     "prettier": "^3.2.5",
     "terminal-kit": "^3.1.1"
   },
   "devDependencies": {
+    "@types/chalk-animation": "^1.6.3",
     "@types/figlet": "^1.5.8",
     "@types/node": "^20.12.6",
     "@types/terminal-kit": "^2.5.6",
