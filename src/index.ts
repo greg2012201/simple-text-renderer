@@ -3,11 +3,10 @@
 import { Command } from 'commander';
 import figlet from 'figlet';
 import fs from 'fs';
-import * as emoji from 'node-emoji';
 import { sleep } from './utils';
 import { terminal } from 'terminal-kit';
 
-console.log(figlet.textSync('About.js'));
+console.log(figlet.textSync('about.js'));
 const program = new Command();
 
 program
@@ -34,8 +33,9 @@ function importFile(filename: string): Promise<string> {
 async function renderText() {
   const file = await importFile('greetings');
   await sleep(1500);
-  const text = emoji.emojify(file);
-  terminal.slowTyping(text, { delay: 50, style: terminal.white }, async function () {
+  const text = file;
+
+  terminal.slowTyping(text, { delay: 25, style: terminal.white }, async function () {
     await sleep(3000);
     process.exit();
   });
