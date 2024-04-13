@@ -2,7 +2,7 @@
   "name": "simple-text-renderer",
   "version": "1.0.0",
   "description": "",
-  "main": "dir/index.js",
+  "main": ".dir/index.js",
   "bin": {
     "about-js": "./dist/index.js"
   },
